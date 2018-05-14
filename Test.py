@@ -4,7 +4,7 @@ import glob
 import re
 import math
 text = []
-path="D:\KULIAH\SEMESTER VI\INFORMATION RETRIEVAL SYSTEM\Query_Expansion"
+path="C:\\Users\\ASUS\\Downloads\\Documents\\akmal\\STKI\\STKI"
 def array_data_gather(path):
       # array
     txt_files = glob.glob(path + "/*.txt")  # ambil file from folder
@@ -74,8 +74,7 @@ def tfidfquery(query_token, idf):
 def sigma_tfidf_query(nilaitfidfquery) :
     nilai = 0
     for value in nilaitfidfquery :
-        nilai = nilai + math.pow(value,2)
-    
+        nilai = nilai + math.pow(value,2)    
     return nilai
 
 def normalisasi_tfidf_query(nilaitfidfquery, nilaisigmaquery):
@@ -125,7 +124,7 @@ nilaisigma = sigma_tfidf_document(nilaitfidf)
 nilainormalisasidokumen = normalisasi_tfidf_dokumen(nilaitfidf, nilaisigma)
 print (nilainormalisasidokumen)
 
-query = "indonesia raya"
+query = "Tetap di puja-puja bangsa"
 query_token = tokenize(query)
 print (query_token)
 
@@ -139,7 +138,18 @@ nilainormalisasiquery = normalisasi_tfidf_query(nilaitfidfquery, nilaisigmaquery
 print (nilainormalisasiquery)
 
 print("nilai cosin : ")
-print(cosinsimiliraty(nilainormalisasidokumen, nilainormalisasiquery))
+nilaicosinsimiliraty=cosinsimiliraty(nilainormalisasidokumen, nilainormalisasiquery)
+print(nilaicosinsimiliraty)
+#print ("nilai max :")
+#nilaimax = max(nilaicosinsimiliraty)
+#index = nilaicosinsimiliraty.index(max(nilaicosinsimiliraty))
+sortes_nilaicosinsimiliraty = sorted(nilaicosinsimiliraty, reverse=True)
+print(nilaicosinsimiliraty)
+print(sortes_nilaicosinsimiliraty)
+print("lagu yang terkait : ")
+for x in sortes_nilaicosinsimiliraty[:5]:
+    index = nilaicosinsimiliraty.index(x)
+    print (text[index])
 '''
 frequency = {}
 for doc in range(len(match_pattern)):
