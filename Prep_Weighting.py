@@ -82,6 +82,7 @@ print (idf)
 print ("TF-IDF Dokumen Training:")
 print (tfidf(train_documents_filtered, idf))
 
+
 """
 #Preprocessing Dokumen Testing
 document_2 = "Matahari di Langit itu terang."
